@@ -11,3 +11,8 @@ JOIN "line_items" ON "orders"."id" = "line_items"."order_id"
 JOIN "products" ON "line_items"."product_id" = "products"."id";
 
 --3. Which warehouses have cheetos?
+SELECT "warehouse", "products"."description" 
+FROM "warehouse"
+JOIN "products" ON "warehouse"."id" = "products"."id"
+JOIN "warehouse_product" ON "products"."id" = "warehouse_product"."product_id"
+WHERE "products"."description" = 'cheetos';
